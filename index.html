@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrabble Game</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #board {
+            position: relative;
+            width: 905px;
+            height: 62px;
+            background-image: url('Scrabble_Board_OneLine.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .square {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            border: 2px solid transparent;
+            text-align: center;
+            line-height: 60px;
+            font-weight: bold;
+            color: black;
+        }
+
+        #rack-container {
+            position: relative;
+            width: 540px;
+            height: 100px;
+            margin-top: 20px;
+        }
+
+        #tile-holder {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            z-index: 0;
+        }
+
+        #rack {
+            position: absolute;
+            top: 50px;
+            left: 30px;
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            z-index: 1;
+        }
+        .controls button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 15px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        background: linear-gradient(45deg, #6a11cb, #2575fc);
+        color: white;
+        cursor: pointer;
+        transition: transform 0.3s, background 0.3s;
+    }
+
+    .controls button:hover {
+        background: linear-gradient(45deg, #2575fc, #6a11cb);
+        transform: scale(1.1);
+    }
+
+        .tile img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        #totalScore {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scrabble Game</h1>
+    <div id="board"></div>
+    <div class="controls">
+        <button id="dealTiles">Deal New Tiles</button>
+        <button id="restartGame">Restart Game</button>
+        <button id="submitWord">Submit Word</button>
+        <div id="currentWord">Current Word: </div>
+        <div id="totalScore">Total Score: 0</div>
+    </div>
+    <div id="rack-container">
+        <img src="scrabble-tile-holder-406774_640.png" alt="Tile Holder" id="tile-holder">
+        <div id="rack"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
